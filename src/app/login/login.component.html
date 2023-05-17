@@ -1,0 +1,56 @@
+<div class="container mt-5">
+  <div class="text-center">
+    <h1>Login Form</h1>
+  </div>
+  <div class="form w-75">
+    <form #productsForm="ngForm" (ngSubmit)="handleFormSubmit(productsForm)">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email"
+        placeholder="Please enter your email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        name="email"
+        ngModel
+        required
+        pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,4}"
+        minlength="6"
+        #email="ngModel">
+
+        <div *ngIf="email.touched && email.invalid" id="emailHelp">
+          <small class="text-danger" *ngIf="email.errors?.['required']">Email is required</small>
+          <small class="text-danger" *ngIf="email.errors?.['pattern']">please enter a proper formate </small>
+          <small class="text-danger" *ngIf="email.errors?.['minlength']">minimum length is 6</small>
+        </div>
+
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password"
+        name="pass"
+        placeholder="Please enter your password"
+        class="form-control"
+        id="exampleInputPassword1"
+        aria-describedby="passHelp"
+        minlength="6"
+        required
+        ngModel
+        #pass="ngModel">
+
+        <div *ngIf="pass.touched && pass.invalid" id="passHelp">
+          <small class="text-danger" *ngIf="pass.errors?.['required']">Password is required</small>
+          <small class="text-danger" *ngIf="pass.errors?.['minlength']">minimum length is 6</small>
+        </div>
+
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 text-center">Submit</button>
+
+    </form>
+  </div>
+  <div class="text-center mt-3">
+    Do not have account?
+    <a [routerLink]="['/signup']">Sign up</a>
+  </div>
+</div>

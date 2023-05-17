@@ -1,0 +1,75 @@
+<div class="container mt-5">
+  <div class="text-center">
+    <h1>Signup Form</h1>
+  </div>
+  <div class="form w-75">
+    <form [formGroup]="productsForm" (ngSubmit)="handleSubmitForm()">
+      <div class="mb-3">
+        <label for="exampleInputName" class="form-label">Name</label>
+        <input type="text"
+        placeholder="Please enter your name"
+        class="form-control"
+        id="name"
+        aria-describedby="NameHelp"
+        formControlName="name">
+        <div *ngIf="getProductsFormControls['name'].touched && getProductsFormControls['name'].invalid" id="NameHelp">
+          <small class="text-danger" *ngIf="getProductsFormControls['name'].errors?.['required']">Name is required</small>
+        </div>
+
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email"
+        placeholder="Please enter your email"
+        class="form-control"
+        id="email"
+        aria-describedby="emailHelp"
+        formControlName="email">
+
+        <div *ngIf="getProductsFormControls['email'].touched && getProductsFormControls['email'].invalid" id="emailHelp">
+          <small class="text-danger" *ngIf="getProductsFormControls['email'].errors?.['required']">Email is required</small>
+          <small class="text-danger" *ngIf="getProductsFormControls['email'].errors?.['pattern']">please enter a proper formate</small>
+        </div>
+
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputName" class="form-label">User name</label>
+        <input type="text"
+        placeholder="Please enter your user name"
+        class="form-control"
+        id="userName"
+        aria-describedby="NameHelp"
+        formControlName="userName">
+
+        <div *ngIf="getProductsFormControls['userName'].touched && getProductsFormControls['userName'].invalid" id="NameHelp">
+          <small class="text-danger" *ngIf="getProductsFormControls['userName'].errors?.['required']">UserName is required</small>
+          <small class="text-danger" *ngIf="getProductsFormControls['userName'].errors?.['pattern']">No spaces please</small>
+        </div>
+
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password"
+        placeholder="Please enter your password"
+        class="form-control"
+        id="password"
+        aria-describedby="passHelp"
+        formControlName="password">
+
+        <div *ngIf="productsForm.controls['password'].touched && productsForm.controls['password'].invalid" id="passHelp">
+          <small class="text-danger" *ngIf="productsForm.controls['password'].errors?.['required']">Password is required</small>
+          <small class="text-danger" *ngIf="productsForm.controls['password'].errors?.['pattern']">please enter a proper formate</small>
+          <small class="text-danger" *ngIf="productsForm.controls['password'].errors?.['minlength']">minimum length is 6</small>
+        </div>
+
+      </div>
+
+      <button type="submit" class="btn btn-primary text-center">Submit</button>
+
+    </form>
+  </div>
+  <div class="text-center mt-3">
+    Already have an account?
+    <a [routerLink]="['/login']">Log in</a>
+  </div>
+</div>

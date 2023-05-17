@@ -1,0 +1,8 @@
+.form{
+  background-color: #D9D9D9;
+}
+.bg{
+  /* background-color: rgba(11, 64, 108, 0.894); */
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 41%, rgba(0,142,255,0.8941701680672269) 100%);
+}
+
